@@ -18,5 +18,5 @@ jobs:
       run: |
         TAG=$(echo $GITHUB_REF | cut -d '/' -f 3)
         docker login ${REGISTRY} --username ${{ secrets.DO_TOKEN }} -p ${{ secrets.DO_TOKEN }}
-        docker build -t ${REGISTRY}/${IMAGE}:${TAG}
+        docker build -t ${REGISTRY}/${IMAGE}:${TAG} .
         docker push ${REGISTRY}/${IMAGE}:${TAG}
